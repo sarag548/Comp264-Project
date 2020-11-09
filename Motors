@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <wiringPi>
+
+#define MOTOR1FORWARD  
+#define MOTOR1REVERSE
+#define MOTOR1ENABLE
+
+
+#define MOTOR2FORWARD  
+#define MOTOR2REVERSE
+#define MOTOR2ENABLE
+
+
+#define MOTOR3FORWARD  
+#define MOTOR3REVERSE
+#define MOTOR3ENABLE
+
+#define MOTOR4FORWARD  
+#define MOTOR4REVERSE
+#define MOTOR4ENABLE
+
+#define POT1
+
+#define SLOW 85
+#define MEDIUM 170
+#define FAST 255
+
+char* readSpeed()
+{
+  int val = analogRead(POT1);
+  if (val >= 0 || val <= 85)
+  {
+    int speed = SLOW;
+  }
+  else if (val > 85 || <= 170)
+  {
+    int speed = MEDIUM;
+  }
+  else 
+  {
+    int speed = FAST;
+  }
+}
+main()
+{
+  pinMode(MOTOR1FORWARD, OUTPUT);
+  pinMode(MOTOR1REVERSE, OUTPUT);
+  pinMode(MOTOR1ENABLE, OUTPUT);
+  
+  pinMode(MOTOR2FORWARD, OUTPUT);
+  pinMode(MOTOR2REVERSE, OUTPUT);
+  pinMode(MOTOR2ENABLE, OUTPUT);
+  
+  pinMode(MOTOR3FORWARD, OUTPUT);
+  pinMode(MOTOR3REVERSE, OUTPUT);
+  pinMode(MOTOR3ENABLE, OUTPUT);
+  
+  pinMode(MOTOR4FORWARD, OUTPUT);
+  pinMode(MOTOR4REVERSE, OUTPUT);
+  pinMode(MOTOR4ENABLE, OUTPUT);
+  
+  pinMode(POT1,INPUT);
+}
