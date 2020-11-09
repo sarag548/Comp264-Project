@@ -21,9 +21,45 @@
 
 #define POT1
 
+#define BUZZER
+
+#define BUTTON
+
+# define BUTTONON 1
+#define BUTTONOFF 0
+
 #define SLOW 85
 #define MEDIUM 170
 #define FAST 255
+
+#define SHORTPAUSE 500
+#define MEDIUMPAUSE 1500
+#define LONGPAUSE 3000
+
+#define SOFTBUZZ 85
+#define LOUDBUZZ 200
+
+bool readButton()
+{
+  char* val = digitalRead(BUTTON);
+  if (val == LOW)
+  {
+    return BUTTONOFF;
+  }
+  else 
+  {
+    return BUTTONON;
+  }
+}
+buzzerOn(int noiseLevel)
+{
+  analogWrite(BUZZER, noiseLevel);
+}
+
+buzzerOff()
+{
+  digitalWrite(BUZZER, LOW);
+}
 
 char* readSpeed()
 {
